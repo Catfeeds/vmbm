@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery.validate.min.js" ></script>
+    <script src="validate_custom.js" ></script>
+    <script src="messages_zh.min.js" ></script>
+    <script type="text/javascript">
+        $.validator.setDefaults({
+            highlight : function(a) {
+                $(a).closest(".form-group").removeClass(
+                        "has-success").addClass("has-error")
+            },
+            success : function(a) {
+                a.closest(".form-group").removeClass("has-error")
+                        .addClass("has-success")
+            },
+            errorElement : "span",
+            errorPlacement : function(a, b) {
+                if (b.is(":radio") || b.is(":checkbox")) {
+                    a.appendTo(b.parent().parent().parent())
+                } else {
+                    a.appendTo(b.parent())
+                }
+            },
+            errorClass : "help-block m-b-none",
+            validClass : "help-block m-b-none"
+        });
+        $().ready(function() {
+            $("#form-validation").validate();
+
+        });
+    </script>
+</head>
+<body>
+
+<form name="form_product" id="form-validation" action="" class="form-horizontal form-validation" accept-charset="UTF-8" method="post">
+    <input type="text" id="text1" class="form-control" placeholder="不能为空" required="true" value="" />
+    <input type="text" id="text2" email="true" class="form-control" placeholder="验证邮箱"  value="" />
+    <input type="text" id="text3" url="true" class="form-control" placeholder="验证URL"value="" />
+    <input type="text" id="text4" date="true" class="form-control" placeholder="验证日期 " value="" />
+    <input type="text" id="text5" dateISO="true" class="form-control" placeholder="验证日期 例如：2009-06-23" value="" />
+    <input type="text" id="text6" number="true" class="form-control" placeholder="必须输入合法的数字(负数，小数)" value="" />
+    <input type="text" id="text7" digits="true" class="form-control" placeholder=" 必须输入整数"  value="" />
+    <input type="text" id="text8" creditcard="true" class="form-control" placeholder=" 必须输入合法的信用卡号"  value="" />
+    <input type="text" id="text9" accept="jpg" class="form-control" placeholder="  输入拥有合法后缀名的字符串（上传文件的后缀）" value="" />
+    <input type="text" id="text10" maxlength="5" class="form-control" placeholder="  输入长度最多是5的字符串(汉字算一个字符)" value="" />
+    <input type="text" id="text11" minlength="10" class="form-control" placeholder="   输入长度最小是10的字符串(汉字算一个字符)"  value="" />
+    <input type="text" id="text12" rangelength="5,10" class="form-control" placeholder="  输入长度必须介于 5 和 10 之间的字符串汉字算一个字符)" required="" value="" />
+    <input type="text" id="text13" range="5,10" class="form-control" placeholder="  输入值必须介于 5 和 10 之间" required="" value="" />
+    <input type="text" id="text14" max="5" class="form-control" placeholder="  输入值不能大于5"  value="" />
+    <input type="text" id="text15" min="10" class="form-control" placeholder="  输入值不能小于10" value="" />
+    <input type="text" id="text17" isIntEqZero="true" class="form-control" placeholder="整数必须为0" value="" />
+    <input type="text" id="text18" isIntGtZero="true" class="form-control" placeholder="整数必须大于0" value="" />
+    <input type="text" id="text19" isIntGteZero="true" class="form-control" placeholder="整数必须大于或等于0" value="" />
+    <input type="text" id="text20" isIntNEqZero="true" class="form-control" placeholder="整数必须不等于0" value="" />
+    <input type="text" id="text21" isIntLtZero="true" class="form-control" placeholder="整数必须小于0" value="" />
+    <input type="text" id="text22" isIntLteZero="true" class="form-control" placeholder="整数必须小于或等于0" value="" />
+    <input type="text" id="text23" isFloatEqZero="true" class="form-control" placeholder="浮点数必须为0" value="" />
+    <input type="text" id="text24" isFloatGtZero="true" class="form-control" placeholder="浮点数必须大于0" value="" />
+    <input type="text" id="text25" isFloatGteZero="true" class="form-control" placeholder="浮点数必须大于或等于0" value="" />
+    <input type="text" id="text26" isFloatNEqZero="true" class="form-control" placeholder="浮点数必须不等于0" value="" />
+    <input type="text" id="text27" isFloatLtZero="true" class="form-control" placeholder="浮点数必须小于0" value="" />
+    <input type="text" id="text28" isFloatLteZero="true" class="form-control" placeholder="浮点数必须小于或等于0" value="" />
+    <input type="text" id="text29" isFloat="true" class="form-control" placeholder="只能包含数字、小数点等字符" value="" />
+    <input type="text" id="text30" isInteger="true" class="form-control" placeholder="匹配integer" value="" />
+    <input type="text" id="text31" isNumber="true" class="form-control" placeholder="匹配数值类型，包括整数和浮点数" value="" />
+    <input type="text" id="text32" isDigits="true" class="form-control" placeholder="只能输入0-9数字" value="" />
+    <input type="text" id="text33" isChinese="true" class="form-control" placeholder="只能包含中文字符" value="" />
+    <input type="text" id="text34" isEnglish="true" class="form-control" placeholder="只能包含英文字符" value="" />
+    <input type="text" id="text35" isMobile="true" class="form-control" placeholder="请正确填写您的手机号码" value="" />
+    <input type="text" id="text36" isPhone="true" class="form-control" placeholder="请正确填写您的电话号码" value="" />
+    <input type="text" id="text37" isTel="true" class="form-control" placeholder="请正确填写您的联系方式" value="" />
+    <input type="text" id="text38" isQq="true" class="form-control" placeholder="匹配QQ" value="" />
+    <input type="text" id="text39" isZipCode="true" class="form-control" placeholder="请正确填写您的邮政编码" value="" />
+    <input type="text" id="text40" isPwd="true" class="form-control" placeholder="以字母开头，长度在6-12之间，只能包含字符、数字和下划线。" value="" />
+    <input type="text" id="text41" isIdCardNo="true" class="form-control" placeholder="请输入正确的身份证号码" value="" />
+    <input type="text" id="text42" ip="true" class="form-control" placeholder="请填写正确的IP地址" value="" />
+    <input type="text" id="text43" stringCheck="true" class="form-control" placeholder="只能包含中文、英文、数字、下划线等字符" value="" />
+    <input type="text" id="text44" isChineseChar="true" class="form-control" placeholder="匹配中文(包括汉字和字符)" value="" />
+    <input type="text" id="text45" isRightfulString="true" class="form-control" placeholder="判断是否为合法字符(a-zA-Z0-9-_)" value="" />
+    <input type="text" id="text46" isContainsSpecialChar="true" class="form-control" placeholder="含有中英文特殊字符" value="" />
+    <input type="submit" class="btn btn-success"/>
+</form>
+
+
+</body>
+</html>
