@@ -18,9 +18,9 @@
         <div>
             <div>
                 <div>
-                    <h1 class="logo-name">A+</h1>
+                    <h3 class="logo-name">ZMZ</h3>
                 </div>
-                <h3>管理后台</h3>
+                <h3>纸妹子后台管理</h3>
             </div>
             <form class="m-t" role="form" accept-charset="UTF-8" method="post">
                 {{ csrf_field() }}
