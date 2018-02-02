@@ -27,21 +27,23 @@ Route::get('image/{md5}', [
 
 
 
- Route::get('/test',function() {
-
-//     $password = bcrypt('admin');
-//     dd($password);
-//     dd(dict()->get('user_info','work_type'));
-//     $password = bcrypt('admin');
-//     dd($password);
-     $obj = new \App\Services\User\Info();
-     $obj = $obj->find(1);
-//     var_dump($obj);exit;
-//    $user = UserInfoModel::find(1);
-     dump(Auth::guard('admin')->user());
-    Auth::login($obj);
-
-    dd(Auth::user());
- });
+// Route::get('/test',function() {
+//
+////     $password = bcrypt('admin');
+////     dd($password);
+////     dd(dict()->get('user_info','work_type'));
+////     $password = bcrypt('admin');
+////     dd($password);
+//     $obj = new \App\Services\User\Info();
+//     $obj = $obj->find(1);
+////     var_dump($obj);exit;
+////    $user = UserInfoModel::find(1);
+//     dump(Auth::guard('admin')->user());
+//    Auth::login($obj);
+//
+//    dd(Auth::user());
+// });
 
 //Route::get('/test', 'Web\AuthController@test');
+
+Route::get('/test', 'TestController@index');
