@@ -26,7 +26,7 @@
 
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
-                        <h5>纸巾列表</h5>
+                        <h5>{{ $fan ? $fan->wechat_name . '的纸巾列表' : '纸巾列表' }}</h5>
                         <div class="ibox-tools">
                             <a class="collapse-link"> <i class="fa fa-chevron-up"></i>
                             </a>
@@ -38,7 +38,7 @@
 
                                 <div class="col-sm-4">
                                     <div class="input-group">
-                                        <input type="text" value="{{ Request::get('keyword') }}" placeholder="请输入微信ID/号进行搜索" name="keyword"class="input-sm form-control">
+                                        <input type="text" value="{{ Request::get('keyword') }}" placeholder="请输入微信/设备（IMEI）进行搜索" name="keyword"class="input-sm form-control">
                                         <span class="input-group-btn">
 									<button type="submit" class="btn btn-sm btn-primary">搜索</button>
 								</span>

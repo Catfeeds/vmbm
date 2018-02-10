@@ -15,13 +15,23 @@ class TissueController extends Controller
 {
     public function index(Request $request)
     {
+        $list = Tissue::where('id', '>', 0);
+        $fan = null;
+        if($request->has('fan_id') && ($fan = Fan::find($request->input('fan_id'))) != null) {
+            $list = $list->where('fan_id', $request->input('fan_id'));
+        }
         if($request->has('keyword') && $request->input('keyword')) {
             $keyword = $request->input('keyword');
-            $list = Tissue::where('wechat_id', 'like', $keyword)->orWhere('wechat_name', 'like', $keyword)->orderBy('updated_at', 'desc')->paginate();
+            $list = $list->with(['fan', 'device'])->orderBy('updated_at', 'desc')->get()->filter(function ($value) use($keyword) {
+                if($value->fan && !(strpos($value->fan->wechat_name, $keyword) === false)) return true;
+                if($value->device && !(strpos($value->device->IMEI, $keyword) === false)) return true;
+                return false;
+            });
+            $list = $this->paginate($list);
         } else {
-            $list = Tissue::orderBy('updated_at', 'desc')->paginate();
+            $list = $list->orderBy('updated_at', 'desc')->paginate();
         }
-        return view('admin.tissue.index', compact('list'));
+        return view('admin.tissue.index', compact('list', 'fan'));
     }
 
     public function paginate($items, $perPage = 25, $page = null, $options = [])
