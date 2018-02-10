@@ -14,4 +14,9 @@ class Device extends Model
     {
         return $this->belongsTo('App\Models\Client');
     }
+
+    public function tissue()
+    {
+        return $this->hasMany('App\Models\Tissue', 'device_id');
+    }
 }

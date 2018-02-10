@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateClientsTable extends Migration
+class AddInfoToTissue extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,8 @@ class CreateClientsTable extends Migration
      */
     public function up()
     {
-        Schema::create('clients', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name', 200);
-            $table->string('phone', 100);
-            $table->timestamps();
+        Schema::table('tissues', function (Blueprint $table) {
+            $table->string('info', 200)->after('money')->nullable()->default('')->comment('备注');
         });
     }
 
@@ -28,6 +25,6 @@ class CreateClientsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('clients');
+        //
     }
 }
