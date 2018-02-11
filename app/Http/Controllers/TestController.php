@@ -21,6 +21,6 @@ class TestController extends Controller
 //        return $res;
         $openId = 'oTIRp1f-L2Auc0hVQvywEh7lwU-s';
         $user = $app->user->get($openId);
-        return $user;
+        dd($user);
     }
 }
