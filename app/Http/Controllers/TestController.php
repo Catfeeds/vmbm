@@ -33,7 +33,7 @@ class TestController extends Controller
     public function qrcode(Request $request)
     {
         $app = app('wechat.official_account');
-        $result = $app->qrcode->forever(666);
+        $result = $app->qrcode->forever('abcde');
         $ticket = $result['ticket'];
         $url = $app->qrcode->url($ticket);
         dd($result, $url);
