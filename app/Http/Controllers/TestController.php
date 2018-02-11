@@ -43,4 +43,10 @@ class TestController extends Controller
     {
         dd(Carbon::now());
     }
+
+    public function device(Request $request)
+    {
+        $device = Device::where('IMEI', 'abcde')->first();
+        dd($device);
+    }
 }

@@ -49,6 +49,7 @@ Route::get('image/{md5}', [
 Route::get('/test', 'TestController@index');
 Route::get('/qrcode', 'TestController@qrcode');
 Route::get('/time', 'TestController@time');
+Route::get('/device', 'TestController@device');
 
 Route::any('/wechat', 'WeChatController@serve');
 Route::namespace('Web')->prefix('web')->group(function () {
