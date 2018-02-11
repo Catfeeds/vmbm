@@ -28,6 +28,8 @@ class TestController extends Controller
     {
         $app = app('wechat.official_account');
         $result = $app->qrcode->forever(56);
-        dd($result);
+        $ticket = $result['ticket'];
+        $url = $app->qrcode->url($ticket);
+        dd($result, $url);
     }
 }
