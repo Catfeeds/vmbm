@@ -8,6 +8,7 @@ use App\Models\Device;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Facades\Validator;
 
 class DeviceController extends Controller
 {
@@ -56,6 +57,14 @@ class DeviceController extends Controller
     public function store(Request $request)
     {
         if($request->method() != 'POST') return back();
+        $validator = Validator::make($request->all(), [
+            'IMEI' => 'required|unique:devices'
+        ], [
+            'IMEI.unique' => 'IMEI已存在！'
+        ]);
+        if($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+        }
         $res = Device::create($request->all());
         if(! $res) return $this->showWarning('新建设备失败！');
         return $this->showMessage('新建成功！', '/admin/device/index');
