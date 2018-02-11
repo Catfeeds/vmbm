@@ -36,7 +36,7 @@ class TestController extends Controller
         $result = $app->qrcode->forever('abcde');
         $ticket = $result['ticket'];
         $url = $app->qrcode->url($ticket);
-        dd($result, $url);
+        dd($ticket, $url);
     }
 
     public function time(Request $request)
