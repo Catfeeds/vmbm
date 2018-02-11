@@ -14,15 +14,17 @@ class WeChatController extends Controller
      */
     public function serve()
     {
-        Log::info('request arrived.');
+//        Log::info('request arrived.');
         $app = app('wechat.official_account');
-        $message = $app->server->getMessage();
-        Log::info($message);
-        $app->server->push(function($message){
-            return 'success';
-        });
+        return '';
+//        return '';
+//        $message = $app->server->getMessage();
+//        Log::info($message);
+//        $app->server->push(function($message){
+//            return 'success';
+//        });
 
-        Log::info('return response.');
+//        Log::info('return response.');
         return $app->server->serve();
     }
 }
