@@ -4,12 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Device;
+use Log;
 
 class TestController extends Controller
 {
     public function index(Request $request)
     {
           $app = app('wechat.official_account');
+          Log::info('aa');
+          return 'ok';
 //        $buttons = [
 //            [
 //                "type" => "view",
@@ -19,9 +22,9 @@ class TestController extends Controller
 //        ];
 //        $res = $app->menu->delete(); // 全部
 //        return $res;
-        $openId = 'oTIRp1f-L2Auc0hVQvywEh7lwU-s';
-        $user = $app->user->get($openId);
-        dd($user);
+//        $openId = 'oTIRp1f-L2Auc0hVQvywEh7lwU-s';
+//        $user = $app->user->get($openId);
+//        dd($user);
     }
 
     public function qrcode(Request $request)
