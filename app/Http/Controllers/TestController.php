@@ -17,8 +17,7 @@ class TestController extends Controller
             ]
         ];
         $app = app('wechat.official_account');
-        $app->menu->delete(); // 全部
-        $res = $app->menu->create($buttons);
+        $res = $app->menu->delete(); // 全部
         return $res;
     }
 }
