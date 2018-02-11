@@ -16,12 +16,13 @@ class WeChatController extends Controller
     {
         Log::info('request arrived.');
         $app = app('wechat.official_account');
+        $message = $app->serverserver->getMessage();
+        Log::info($message);
         $app->server->push(function($message){
             return 'success';
             exit;
         });
 
-        return 'success';
         Log::info('return response.');
         return $app->server->serve();
     }
