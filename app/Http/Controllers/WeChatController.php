@@ -24,6 +24,7 @@ class WeChatController extends Controller
             switch ($message['MsgType'])
             {
                 case 'event':
+                    Log::info('begin');
                     if($message['Event'] == 'subscribe') {
                         event(new Subscribe($message));
                     } elseif($message['Event'] == 'unsubscribe') {
@@ -31,6 +32,7 @@ class WeChatController extends Controller
                     } elseif($message['Event'] == 'SCAN') {
                         event(new Scan($message));
                     }
+                    Log::info('end');
                     break;
                 default:
                     break;
