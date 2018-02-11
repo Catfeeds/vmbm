@@ -21,6 +21,7 @@ class WeChatController extends Controller
 //        $message = $app->server->getMessage();
 //        Log::info($message);
         $app->server->push(function($message){
+            Log::info($message);
             return 'ok';
         });
 
