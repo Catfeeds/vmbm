@@ -162,25 +162,25 @@
     <script type="text/javascript">
         $(function() {
             $('#sg-table').on('click', '.btn-pass', function () {
-                var url = "{{ U('device/changeAuthStatus') }}" + '?id=' + $(this).attr('data-id') + '&auth_status=1';
+                var url = "{{ U('Device/changeAuthStatus') }}" + '?id=' + $(this).attr('data-id') + '&auth_status=1';
                 $('#sg-form').attr('action', url);
                 $('#my-modal-label').text('确认审核通过？');
                 $('#my-modal').modal('show');
             }).on('click', '.btn-not-pass', function () {
-                var url = "{{ U('device/changeAuthStatus') }}" + '?id=' + $(this).attr('data-id') + '&auth_status=2';
+                var url = "{{ U('Device/changeAuthStatus') }}" + '?id=' + $(this).attr('data-id') + '&auth_status=2';
                 $('#sg-form').attr('action', url);
                 $('#my-modal-label').text('确认审核不过？');
                 $('#my-modal').modal('show');
             }).on('click', '.btn-delete', function () {
-                var url = "{{ U('device/destroy') }}" + '?id=' + $(this).attr('data-id');
+                var url = "{{ U('Device/destroy') }}" + '?id=' + $(this).attr('data-id');
                 $('#sg-form').attr('action', url);
                 $('#my-modal-label').text('确认删除？');
                 $('#my-modal').modal('show');
             }).on('click', '.btn-detail', function () {
-                var url = "{{ U('device/detail') }}" + '?id=' + $(this).attr('data-id');
+                var url = "{{ U('Device/detail') }}" + '?id=' + $(this).attr('data-id');
                 window.location = url;
             }).on('click', '.btn-edit', function () {
-                var url = "{{ U('device/edit') }}" + '?id=' + $(this).attr('data-id');
+                var url = "{{ U('Device/edit') }}" + '?id=' + $(this).attr('data-id');
                 window.location = url;
             });
 

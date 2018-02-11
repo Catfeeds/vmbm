@@ -40,7 +40,7 @@
                     <div class="ibox-content">
                         <div class="row">
                             <div class="col-sm-4 col-sm-offset-8">
-                                <a class="btn btn-primary pull-right" href="{{ U('ad/index') }}">返回列表</a>
+                                <a class="btn btn-primary pull-right" href="{{ U('AD/index') }}">返回列表</a>
                             </div>
                         </div>
                         <div class="row sg-item">

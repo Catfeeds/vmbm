@@ -38,7 +38,7 @@ class FanController extends Controller
         if($request->method() != 'POST') return back();
         $res = Fan::create($request->all());
         if(! $res) return $this->showWarning('新建粉丝失败！');
-        return $this->showMessage('新建成功！', '/admin/fan/index');
+        return $this->showMessage('新建成功！', '/admin/Fan/index');
     }
 
     public function detail(Request $request)
@@ -61,7 +61,7 @@ class FanController extends Controller
         unset($arr['_token']);
         $res = Fan::where('id', $request->input('id'))->update($arr);
         if(!$res) return $this->showWarning('数据库更新失败！');
-        return $this->showMessage('更新成功！', '/admin/fan/index');
+        return $this->showMessage('更新成功！', '/admin/Fan/index');
     }
 
     public function destroy(Request $request)
@@ -69,6 +69,6 @@ class FanController extends Controller
         if($request->method() != 'POST') return back();
         if(!$request->has('id') || ($item = Fan::find($request->input('id'))) == null) return $this->showWarning('找不到粉丝！');
         if(!$item->delete()) return $this->showWarning('删除失败！');
-        return $this->showMessage('删除成功！', '/admin/fan/index');
+        return $this->showMessage('删除成功！', '/admin/Fan/index');
     }
 }

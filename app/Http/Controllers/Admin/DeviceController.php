@@ -72,7 +72,7 @@ class DeviceController extends Controller
         $res = Device::create($request->all());
         if(! $res) return $this->showWarning('新建设备失败！');
 
-        return $this->showMessage('新建成功！', '/admin/device/index');
+        return $this->showMessage('新建成功！', '/admin/Device/index');
     }
 
     public function update(Request $request)
@@ -83,7 +83,7 @@ class DeviceController extends Controller
         unset($arr['_token']);
         $res = Device::where('id', $request->input('id'))->update($arr);
         if(!$res) return $this->showWarning('数据库更新失败！');
-        return $this->showMessage('更新成功！', '/admin/device/index');
+        return $this->showMessage('更新成功！', '/admin/Device/index');
     }
 
     public function changeAuthStatus(Request $request)
@@ -93,7 +93,7 @@ class DeviceController extends Controller
         if(!$request->has('auth_status')) return back();
         $item->auth_status = $request->input('auth_status');
         if(!$item->saveOrFail()) return $this->showWarning('数据库保存失败！');
-        return $this->showMessage('操作成功！', '/admin/device/index');
+        return $this->showMessage('操作成功！', '/admin/Device/index');
     }
 
     public function destroy(Request $request)
@@ -101,6 +101,6 @@ class DeviceController extends Controller
         if($request->method() != 'POST') return back();
         if(!$request->has('id') || ($item = Device::find($request->input('id'))) == null) return $this->showWarning('找不到设备！');
         if(!$item->delete()) return $this->showWarning('删除失败！');
-        return $this->showMessage('删除成功！', '/admin/device/index');
+        return $this->showMessage('删除成功！', '/admin/Device/index');
     }
 }

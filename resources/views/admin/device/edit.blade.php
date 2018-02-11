@@ -33,7 +33,7 @@
                         </div>
                     </div>
                     <div class="ibox-content">
-                        <form class="form-horizontal" role="form" method="POST" action="{{ U('device/update') }}">
+                        <form class="form-horizontal" role="form" method="POST" action="{{ U('Device/update') }}">
                             {{ csrf_field() }}
 
                             <input class="form-control" type="hidden" name="id" value="{{ $item->id }}">

@@ -152,25 +152,25 @@
     <script type="text/javascript">
         $(function() {
             $('#sg-table').on('click', '.btn-up', function () {
-                var url = "{{ U('ad/changeStatus') }}" + '?id=' + $(this).attr('data-id') + '&status=1';
+                var url = "{{ U('AD/changeStatus') }}" + '?id=' + $(this).attr('data-id') + '&status=1';
                 $('#sg-form').attr('action', url);
                 $('#my-modal-label').text('确定上架？');
                 $('#my-modal').modal('show');
             }).on('click', '.btn-down', function () {
-                var url = "{{ U('ad/changeStatus') }}" + '?id=' + $(this).attr('data-id') + '&status=0';
+                var url = "{{ U('AD/changeStatus') }}" + '?id=' + $(this).attr('data-id') + '&status=0';
                 $('#sg-form').attr('action', url);
                 $('#my-modal-label').text('确定下架？');
                 $('#my-modal').modal('show');
             }).on('click', '.btn-delete', function () {
-                var url = "{{ U('ad/destroy') }}" + '?id=' + $(this).attr('data-id');
+                var url = "{{ U('AD/destroy') }}" + '?id=' + $(this).attr('data-id');
                 $('#sg-form').attr('action', url);
                 $('#my-modal-label').text('确认删除？');
                 $('#my-modal').modal('show');
             }).on('click', '.btn-detail', function () {
-                var url = "{{ U('ad/detail') }}" + '?id=' + $(this).attr('data-id');
+                var url = "{{ U('AD/detail') }}" + '?id=' + $(this).attr('data-id');
                 window.location = url;
             }).on('click', '.btn-edit', function () {
-                var url = "{{ U('ad/edit') }}" + '?id=' + $(this).attr('data-id');
+                var url = "{{ U('AD/edit') }}" + '?id=' + $(this).attr('data-id');
                 window.location = url;
             });
 

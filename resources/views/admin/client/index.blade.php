@@ -132,15 +132,15 @@
     <script type="text/javascript">
         $(function() {
             $('#sg-table').on('click', '.btn-delete', function () {
-                var url = "{{ U('client/destroy') }}" + '?id=' + $(this).attr('data-id');
+                var url = "{{ U('Client/destroy') }}" + '?id=' + $(this).attr('data-id');
                 $('#sg-form').attr('action', url);
                 $('#my-modal-label').text('确认删除？');
                 $('#my-modal').modal('show');
             }).on('click', '.btn-device', function () {
-                var url = "{{ U('client/device') }}" + '?id=' + $(this).attr('data-id');
+                var url = "{{ U('Client/device') }}" + '?id=' + $(this).attr('data-id');
                 window.location = url;
             }).on('click', '.btn-edit', function () {
-                var url = "{{ U('client/edit') }}" + '?id=' + $(this).attr('data-id');
+                var url = "{{ U('Client/edit') }}" + '?id=' + $(this).attr('data-id');
                 window.location = url;
             });
 

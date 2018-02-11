@@ -38,7 +38,7 @@ class ADController extends Controller
         if($request->method() != 'POST') return back();
         $res = AD::create($request->all());
         if(! $res) return $this->showWarning('新建广告失败！');
-        return $this->showMessage('新建成功！', '/admin/ad/index');
+        return $this->showMessage('新建成功！', '/admin/AD/index');
     }
 
     public function changeStatus(Request $request)
@@ -48,7 +48,7 @@ class ADController extends Controller
         if(!$request->has('status')) return back();
         $item->status = $request->input('status');
         if(!$item->saveOrFail()) return $this->showWarning('数据库保存失败！');
-        return $this->showMessage('操作成功！', '/admin/ad/index');
+        return $this->showMessage('操作成功！', '/admin/AD/index');
     }
 
     public function detail(Request $request)
@@ -71,7 +71,7 @@ class ADController extends Controller
         unset($arr['_token']);
         $res = AD::where('id', $request->input('id'))->update($arr);
         if(!$res) return $this->showWarning('数据库更新失败！');
-        return $this->showMessage('更新成功！', '/admin/ad/index');
+        return $this->showMessage('更新成功！', '/admin/AD/index');
     }
 
     public function destroy(Request $request)
@@ -79,6 +79,6 @@ class ADController extends Controller
         if($request->method() != 'POST') return back();
         if(!$request->has('id') || ($item = AD::find($request->input('id'))) == null) return $this->showWarning('找不到广告！');
         if(!$item->delete()) return $this->showWarning('删除失败！');
-        return $this->showMessage('删除成功！', '/admin/ad/index');
+        return $this->showMessage('删除成功！', '/admin/AD/index');
     }
 }

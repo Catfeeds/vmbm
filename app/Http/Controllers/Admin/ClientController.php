@@ -29,7 +29,7 @@ class ClientController extends Controller
         if($request->method() != 'POST') return back();
         $res = Client::create($request->all());
         if(! $res) return $this->showWarning('新建客户失败！');
-        return $this->showMessage('新建成功！', '/admin/client/index');
+        return $this->showMessage('新建成功！', '/admin/Client/index');
     }
 
     public function device(Request $request)
@@ -53,7 +53,7 @@ class ClientController extends Controller
         unset($arr['_token']);
         $res = Client::where('id', $request->input('id'))->update($arr);
         if(!$res) return $this->showWarning('数据库更新失败！');
-        return $this->showMessage('更新成功！', '/admin/client/index');
+        return $this->showMessage('更新成功！', '/admin/Client/index');
     }
 
     public function destroy(Request $request)
@@ -61,6 +61,6 @@ class ClientController extends Controller
         if($request->method() != 'POST') return back();
         if(!$request->has('id') || ($item = Client::find($request->input('id'))) == null) return $this->showWarning('找不到客户！');
         if(!$item->delete()) return $this->showWarning('删除失败！');
-        return $this->showMessage('删除成功！', '/admin/device/index');
+        return $this->showMessage('删除成功！', '/admin/Client/index');
     }
 }
