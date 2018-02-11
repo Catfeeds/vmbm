@@ -12,9 +12,9 @@ class TestController extends Controller
     public function index(Request $request)
     {
           $app = app('wechat.official_account');
-            $app->broadcasting->sendText("数学");
+            $app->broadcasting->sendText("天文");
           Log::info('rrrr');
-          return 'lll';
+          return 'mmm';
 //        $buttons = [
 //            [
 //                "type" => "view",
