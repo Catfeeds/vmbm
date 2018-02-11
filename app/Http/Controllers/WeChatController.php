@@ -20,9 +20,9 @@ class WeChatController extends Controller
 //        return '';
 //        $message = $app->server->getMessage();
 //        Log::info($message);
-//        $app->server->push(function($message){
-//            return 'success';
-//        });
+        $app->server->push(function($message){
+            return 'success';
+        });
 
 //        Log::info('return response.');
         return $app->server->serve();
