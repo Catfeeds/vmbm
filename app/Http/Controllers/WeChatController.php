@@ -21,7 +21,7 @@ class WeChatController extends Controller
             exit;
         });
 
-
+        return 'success';
         Log::info('return response.');
         return $app->server->serve();
     }
