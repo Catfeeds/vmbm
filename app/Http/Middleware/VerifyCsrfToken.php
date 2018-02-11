@@ -15,6 +15,7 @@ class VerifyCsrfToken extends BaseVerifier
         //
         "notify",
         "admin/Base/Attachment/*",
+        'wechat/*',
     ];
 
 }
