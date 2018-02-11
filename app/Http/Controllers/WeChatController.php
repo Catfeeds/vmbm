@@ -16,7 +16,7 @@ class WeChatController extends Controller
     {
         Log::info('request arrived.');
         $app = app('wechat.official_account');
-        $app->broadcasting->sendText("我去");
+
         $app->server->push(function($message){
             return 'success';
         });
