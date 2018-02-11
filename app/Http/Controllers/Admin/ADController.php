@@ -36,6 +36,7 @@ class ADController extends Controller
     public function store(Request $request)
     {
         if($request->method() != 'POST') return back();
+        dd($request->all());
         $res = AD::create($request->all());
         if(! $res) return $this->showWarning('新建广告失败！');
         return $this->showMessage('新建成功！', '/admin/AD/index');
