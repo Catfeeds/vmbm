@@ -11,7 +11,11 @@ class TestController extends Controller
 {
     public function index(Request $request)
     {
-          $app = app('wechat.official_account');
+          // $app = app('wechat.official_account');
+          $id = '演示PHP-MYSQL';
+          $item1 = urlencode($id);
+          $item2 = urldecode($item1);
+          dd($id, $item1, $item2);
 //          dd($app->server->push());
 //            $app->broadcasting->sendText("考研");
 //          Log::info('rrrr');
@@ -25,9 +29,9 @@ class TestController extends Controller
 //        ];
 //        $res = $app->menu->delete(); // 全部
 //        return $res;
-        $openId = 'oTIRp1f-L2Auc0hVQvywEh7lwU-s';
-        $user = $app->user->get($openId);
-        dd($user);
+//        $openId = 'oTIRp1f-L2Auc0hVQvywEh7lwU-s';
+//        $user = $app->user->get($openId);
+//        dd($user);
     }
 
     public function qrcode(Request $request)
