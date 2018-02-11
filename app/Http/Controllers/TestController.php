@@ -25,7 +25,7 @@ class TestController extends Controller
 //        ];
 //        $res = $app->menu->delete(); // 全部
 //        return $res;
-        $openId = 'oTIRp1f-L2Auc0hVQvywEh7lwU-s';
+        $openId = 'oTIRp1f-L2Auc0hVQvywEh';
         $user = $app->user->get($openId);
         dd($user);
     }
