@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\Device;
 use Log;
@@ -34,5 +35,10 @@ class TestController extends Controller
         $ticket = $result['ticket'];
         $url = $app->qrcode->url($ticket);
         dd($result, $url);
+    }
+
+    public function time(Request $request)
+    {
+        dd(Carbon::now());
     }
 }
