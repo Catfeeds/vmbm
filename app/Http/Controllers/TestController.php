@@ -13,7 +13,7 @@ class TestController extends Controller
             [
                 "type" => "view",
                 "name" => "纸妹子",
-                "key"  => "http://47.104.165.93/user"
+                "url"  => "http://47.104.165.93/user"
             ]
         ];
         $app = app('wechat.official_account');
