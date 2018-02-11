@@ -13,8 +13,8 @@ class TestController extends Controller
     {
           $app = app('wechat.official_account');
             $app->broadcasting->sendText("大家好");
-          Log::info('aa');
-          return 'ok';
+          Log::info('adddda');
+          return 'aaaa';
 //        $buttons = [
 //            [
 //                "type" => "view",
