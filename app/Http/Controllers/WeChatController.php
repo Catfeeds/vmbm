@@ -15,7 +15,7 @@ class WeChatController extends Controller
     public function serve()
     {
         Log::info('request arrived.');
-        $app = app('wechat');
+        $app = app('wechat.official_account');
         $app->server->setMessageHandler(function($message) use ($app){
             if ($message->MsgType=='event') {
                 $user_openid = $message->FromUserName;
