@@ -9,15 +9,18 @@ class TestController extends Controller
 {
     public function index(Request $request)
     {
-        $buttons = [
-            [
-                "type" => "view",
-                "name" => "纸妹子",
-                "url"  => "http://47.104.165.93/user"
-            ]
-        ];
-        $app = app('wechat.official_account');
-        $res = $app->menu->delete(); // 全部
-        return $res;
+          $app = app('wechat.official_account');
+//        $buttons = [
+//            [
+//                "type" => "view",
+//                "name" => "纸妹子",
+//                "url"  => "http://47.104.165.93/user"
+//            ]
+//        ];
+//        $res = $app->menu->delete(); // 全部
+//        return $res;
+        $openId = 'oTIRp1f-L2Auc0hVQvywEh7lwU-s';
+        $user = $app->user->get($openId);
+        return $user;
     }
 }
