@@ -53,8 +53,8 @@
                         <table class="table table-striped table-bordered table-hover dataTable" id="sg-table">
                             <thead>
                             <tr>
-                                <th>微信ID</th>
                                 <th>微信名</th>
+                                <th>状态</th>
                                 <th>消费金额</th>
                                 <th>获得纸巾数</th>
                                 <th>购买纸巾数</th>
@@ -70,8 +70,14 @@
                             @else
                                 @foreach($list as $item)
                                     <tr>
-                                        <td>{{ $item->wechat_id }}</td>
                                         <td>{{ $item->wechat_name }}</td>
+                                        <td>
+                                            @if($item->status == 0)
+                                                <span class="label label-danger">未关注</span>
+                                            @else
+                                                <span class="label label-success">关注</span>
+                                            @endif
+                                        </td>
                                         <td>{{ $item->money }}</td>
                                         <td>{{ $item->num }}</td>
                                         <td>{{ $item->buy_num }}</td>
