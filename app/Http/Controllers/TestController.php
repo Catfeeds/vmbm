@@ -12,6 +12,7 @@ class TestController extends Controller
     public function index(Request $request)
     {
           $app = app('wechat.official_account');
+        $app->broadcasting->sendText("大家好！欢迎使用 EasyWeChat。");
           Log::info('aa');
           return 'ok';
 //        $buttons = [
