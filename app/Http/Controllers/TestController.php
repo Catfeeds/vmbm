@@ -23,4 +23,11 @@ class TestController extends Controller
         $user = $app->user->get($openId);
         dd($user);
     }
+
+    public function qrcode(Request $request)
+    {
+        $app = app('wechat.official_account');
+        $result = $app->qrcode->forever(56);
+        dd($request);
+    }
 }

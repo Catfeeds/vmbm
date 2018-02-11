@@ -47,8 +47,12 @@ Route::get('image/{md5}', [
 //Route::get('/test', 'Web\AuthController@test');
 
 Route::get('/test', 'TestController@index');
+Route::get('/qrcode', 'TestController@qrcode');
 
 Route::any('/wechat', 'WeChatController@serve');
+Route::namespace('Web')->prefix('web')->group(function () {
+    Route::get('index', 'IndexController@index');
+});
 
 Route::group(['middleware' => ['wechat.oauth']], function () {
     Route::get('/user', function () {
