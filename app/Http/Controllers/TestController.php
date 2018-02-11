@@ -37,7 +37,7 @@ class TestController extends Controller
             ],
         ];
         $app = app('wechat.official_account');
-        $app->menu->create($buttons);
-        return 'ok';
+        $res = $app->menu->create($buttons);
+        return $res;
     }
 }
