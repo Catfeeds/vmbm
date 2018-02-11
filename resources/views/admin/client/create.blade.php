@@ -33,7 +33,7 @@
                         </div>
                     </div>
                     <div class="ibox-content">
-                        <form class="form-horizontal" role="form" method="POST" action="{{ U('client/store') }}">
+                        <form class="form-horizontal" role="form" method="POST" action="{{ U('Client/store') }}">
                             {{ csrf_field() }}
 
                             <div class="form-group">
