@@ -65,8 +65,13 @@ class DeviceController extends Controller
         if($validator->fails()) {
             return back()->withErrors($validator)->withInput();
         }
+        $data = $request->all();
+        $app = app('wechat.official_account');
+        $result = $app->qrcode->forever($data['IMEI']);
+        $data['ticket'] = $result['ticket'];
         $res = Device::create($request->all());
         if(! $res) return $this->showWarning('新建设备失败！');
+
         return $this->showMessage('新建成功！', '/admin/device/index');
     }
 
