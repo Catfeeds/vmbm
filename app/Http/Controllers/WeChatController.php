@@ -18,8 +18,8 @@ class WeChatController extends Controller
 
         $app = app('wechat.official_account');
         $app->server->push(function($message) {
-             Log::info($message);
-            return "success";
+            Log::info($message);
+            return "您好！欢迎使用 EasyWeCha";
         });
 
         return $app->server->serve();
