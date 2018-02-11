@@ -12,9 +12,9 @@ class TestController extends Controller
     public function index(Request $request)
     {
           $app = app('wechat.official_account');
-            $app->broadcasting->sendText("考研");
-          Log::info('rrrr');
-          return '考研';
+//            $app->broadcasting->sendText("考研");
+//          Log::info('rrrr');
+//          return '考研';
 //        $buttons = [
 //            [
 //                "type" => "view",
@@ -22,8 +22,8 @@ class TestController extends Controller
 //                "url"  => "http://47.104.165.93/user"
 //            ]
 //        ];
-//        $res = $app->menu->delete(); // 全部
-//        return $res;
+        $res = $app->menu->delete(); // 全部
+        return $res;
 //        $openId = 'oTIRp1f-L2Auc0hVQvywEh7lwU-s';
 //        $user = $app->user->get($openId);
 //        dd($user);
