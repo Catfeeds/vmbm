@@ -47,3 +47,5 @@ Route::get('image/{md5}', [
 //Route::get('/test', 'Web\AuthController@test');
 
 Route::get('/test', 'TestController@index');
+
+Route::any('/wechat', 'WeChatController@serve');

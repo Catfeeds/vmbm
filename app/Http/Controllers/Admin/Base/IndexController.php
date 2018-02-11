@@ -9,6 +9,11 @@
 namespace App\Http\Controllers\Admin\Base;
 
 use App\Http\Controllers\Admin\Controller;
+use App\Models\AD;
+use App\Models\Client;
+use App\Models\Device;
+use App\Models\Fan;
+use App\Models\Tissue;
 use App\Services\Base\Tree;
 use App\Services\Base\BaseArea;
 use App\Services\Admin\Menus;
@@ -35,7 +40,24 @@ class IndexController extends Controller
         return view('admin.base.index.index',compact('menus'));
     }
     function welcome() {
-        return view('admin.base.index.welcome');
+        $devices = Device::all();
+        $off_device_cnt = $devices->where('status', 0)->count();
+        $online_device_cnt = $devices->where('status', 1)->count();
+        $lack_device_cnt = $devices->where('status', 2)->count();
+        $error_device_cnt = $devices->where('status', 3)->count();
+        $devices_cnt = $devices->count();
+        $clients_cnt = Client::all()->count();
+        $fans_cnt = Fan::all()->count();
+        $ads = AD::all();
+        $ad_get_cnt = Tissue::where('status', 0)->get()->count();
+        $ad_up_cnt = $ads->where('status', 1)->count();
+        $ad_down_cnt = $ads->where('status', 0)->count();
+        $ads_cnt = $ads->count();
+        $tissues = Tissue::all();
+        $tissue_get_cnt = $ad_get_cnt;
+        $tissues_cnt = $tissues->count();
+        $tissue_buy_cnt = $tissues_cnt - $tissue_get_cnt;
+        return view('admin.base.index.welcome', compact('devices_cnt', 'off_device_cnt', 'online_device_cnt', 'lack_device_cnt', 'error_device_cnt', 'clients_cnt', 'fans_cnt', 'ads_cnt', 'ad_get_cnt', 'ad_up_cnt', 'ad_down_cnt', 'tissues_cnt', 'tissue_get_cnt', 'tissue_buy_cnt'));
     }
     
     function createAreaDate(){

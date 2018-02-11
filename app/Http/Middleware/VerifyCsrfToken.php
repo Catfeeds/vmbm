@@ -14,7 +14,8 @@ class VerifyCsrfToken extends BaseVerifier
     protected $except = [
         //
         "notify",
-        "admin/Base/Attachment/*"
+        "admin/Base/Attachment/*",
+        'wechat/*',
     ];
 
 }
