@@ -20,7 +20,6 @@ class WeChatController extends Controller
             if ($message->MsgType=='event') {
                 $user_openid = $message->FromUserName;
                 if ($message->Event=='subscribe') {
-                    　　　　　　　　//下面是你点击关注时，进行的操作
                 $user_info['unionid'] = $message->ToUserName;
                 $user_info['openid'] = $user_openid;
                 $userService = $app->user;
@@ -33,14 +32,12 @@ class WeChatController extends Controller
                 $user_info['city'] = $user['city'];
                 $user_info['country'] = $user['country'];
                 $user_info['is_subscribe'] = 1;
-　　　　　　　　　　//下面有些是WxStudent相关的方法，就是一些数据库的操作，由于数据库不同，要执行的操作也不一样，所以就只写了一个方法名
                 if (WxStudent::weixin_attention($user_info)) {
                     return '欢迎关注';
                 }else{
                     return '您的信息由于某种原因没有保存，请重新关注';
                 }
             }else if ($message->Event=='unsubscribe') {
-                    　　　　　　　　//取消关注时执行的操作，（注意下面返回的信息用户不会收到，因为你已经取消关注，但别的操作还是会执行的<如：取消关注的时候，要把记录该用户从记录微信用户信息的表中删掉>）
                 if (WxStudent::weixin_cancel_attention($user_openid)) {
                     return '已取消关注';
                 }
