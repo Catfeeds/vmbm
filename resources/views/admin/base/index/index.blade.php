@@ -118,7 +118,7 @@
                 {{--</div>--}}
                 {{--<a href="/admin/logout" class="roll-nav roll-right J_tabExit"><i class="fa fa fa-sign-out"></i> 退出</a>--}}
             {{--</div>--}}
-            <div class="row J_mainContent" id="content-main" style="height:calc(100% - 40px)">
+            <div class="row J_mainContent" id="content-main" style="height:calc(100% - 80px)">
                 <iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="{{ U('Base/Index/welcome')}}" frameborder="0" data-id="index_v1.html" seamless></iframe>
             </div>
             <div class="footer" style="position: fixed;bottom:0;right: 0;left: 0">
