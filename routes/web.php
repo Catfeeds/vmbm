@@ -57,7 +57,8 @@ Route::namespace('Web')->prefix('web')->middleware(['wechat.oauth'])->group(func
     Route::get('Index/get', 'IndexController@get');
     Route::get('Index/buy', 'IndexController@buy');
     Route::get('/user', function () {
-        $user = session('wechat.oauth_user'); // 拿到授权用户资料
+        $app = app('wechat.official_account');
+        $user = $app->oauth->user();
 
         dd($user);
     });
