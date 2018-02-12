@@ -24,7 +24,7 @@ class TestController extends Controller
             [
                 "type" => "view",
                 "name" => "纸妹子",
-                "url"  => "http://47.104.165.93/user"
+                "url"  => "http://47.104.165.93/web/user"
             ]
         ];
         $app->menu->delete(); // 全部
