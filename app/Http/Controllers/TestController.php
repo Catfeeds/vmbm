@@ -28,11 +28,10 @@ class TestController extends Controller
             ]
         ];
         $app->menu->delete(); // 全部
-        $app->menu->create($buttons);
+        $res = $app->menu->create($buttons);
 //        return $res;
 //        $openId = 'oTIRp1f-L2Auc0hVQvywEh7lwU-s';
-        $user = $app->oauth->user();
-        dd($user);
+        dd($res);
     }
 
     public function qrcode(Request $request)
