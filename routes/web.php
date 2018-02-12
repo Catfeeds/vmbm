@@ -60,6 +60,6 @@ Route::namespace('Web')->prefix('web')->middleware(['wechat.oauth'])->group(func
         $app = app('wechat.official_account');
         $user = session('wechat.oauth_user');
 
-        dd($user);
+        dd($user, $user->id);
     });
 });
