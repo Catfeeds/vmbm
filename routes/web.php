@@ -52,11 +52,10 @@ Route::get('/time', 'TestController@time');
 Route::get('/device', 'TestController@device');
 
 Route::any('/wechat', 'WeChatController@serve');
-Route::namespace('Web')->prefix('web')->group(function () {
+Route::namespace('Web')->prefix('web')->middleware(['wechat.oauth'])->group(function () {
     Route::get('index', 'IndexController@index');
-});
-
-Route::group(['middleware' => ['wechat.oauth']], function () {
+    Route::get('Index/get', 'IndexController@get');
+    Route::get('Index/buy', 'IndexController@buy');
     Route::get('/user', function () {
         $user = session('wechat.oauth_user'); // 拿到授权用户资料
 
