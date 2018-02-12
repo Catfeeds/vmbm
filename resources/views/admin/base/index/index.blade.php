@@ -17,7 +17,7 @@
     <link href="/base/css/bootstrap.min.css?v=3.4.0" rel="stylesheet">
     <link href="/base/css/font-awesome.min.css?v=4.3.0" rel="stylesheet">
     <link href="/base/css/animate.min.css" rel="stylesheet">
-    <link href="/base/css/style.min.css?v={{config("sys.version")}}" rel="stylesheet">
+    {{--<link href="/base/css/style.min.css?v={{config("sys.version")}}" rel="stylesheet">--}}
 </head>
 
 <body class="fixed-sidebar full-height-layout gray-bg">
